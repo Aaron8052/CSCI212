@@ -33,24 +33,26 @@ public class Ratings {
         System.out.print(value);
         ratings[0] = value;
 
-        int[] stats = new int[5];
+        int[] counts = new int[5];
 
 
 
         for (var i = 1; i < ratings.length; i++) {
             value = (int)list.get(i);
-            stats[value -1] ++;
+            counts[value -1] ++;
             System.out.print(", " + value);
             ratings[i] = value;
         }
         System.out.println();
 
-
-        for (int i = 0; i < stats.length; i++) {
-            if (stats[i] < 1)
+        for (int i = 0; i < counts.length; i++) {
+            if (counts[i] < 1)
                 continue;
             System.out.print("Rating " + (i + 1) + ": " );
-            // TODO
+            System.out.print("" + counts[i] + " time(s), ");
+            var percentage = counts[i] / (double)ratings.length * 100;
+            // TODO: round percentage to 10th position decimal
+            System.out.print("" + percentage + "%");
         }
     }
 }
